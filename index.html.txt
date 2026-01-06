@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Silent Burnout Detector</title>
+</head>
+<body>
+
+    <h1>Silent Burnout Detector</h1>
+
+    <textarea id="userText" placeholder="Type how you feel..."></textarea>
+    <br><br>
+
+    <button onclick="detectBurnout()">Check Burnout</button>
+
+    <p id="result"></p>
+
+    <script>
+        function detectBurnout() {
+            document.getElementById("result").innerText =
+                "Burnout Level: Medium\nAdvice: Take some rest";
+        }
+    </script>
+
+</body>
+</html>

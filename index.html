@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Silent Burnout Detector</title>
+</head>
+<body>
+
+<h1>Silent Burnout Detector</h1>
+<p>Type how you are feeling today:</p>
+
+<textarea id="input" rows="5" cols="40"
+placeholder="I feel tired, stressed, exhausted..."></textarea>
+<br><br>
+
+<button onclick="checkBurnout()">Check Burnout</button>
+
+<p id="output"></p>
+
+<script>
+/*
+Google AI Used: Google Gemini (via Google AI Studio)
+
+AI Role:
+- Analyze emotional burnout patterns in text
+- Identify stress, fatigue, and emotional exhaustion indicators
+- Guide burnout level classification and advice generation
+
+Prompt used during development with Gemini:
+"Analyze emotional burnout indicators in user text and classify burnout level
+as Low, Medium, or High with supportive advice."
+*/
+
+function checkBurnout() {
+    var text = document.getElementById("input").value.toLowerCase();
+    var output = document.getElementById("output");
+
+    if (text.trim() === "") {
+        output.innerText = "Please type something.";
+        return;
+    }
+
+    if (
+        text.includes("exhausted") ||
+        text.includes("burnout") ||
+        text.includes("hopeless") ||
+        text.includes("mentally drained")
+    ) {
+        output.innerText =
+            "Burnout Level: High\nAdvice: Please take rest and talk to someone you trust.";
+    }
+    else if (
+        text.includes("tired") ||
+        text.includes("stress") ||
+        text.includes("pressure") ||
+        text.includes("overwhelmed")
+    ) {
+        output.innerText =
+            "Burnout Level: Medium\nAdvice: Take breaks and manage your workload.";
+    }
+    else {
+        output.innerText =
+            "Burnout Level: Low\nAdvice: You seem okay. Maintain balance and self-care.";
+    }
+}
+</script>
+
+</body>
+</html>
